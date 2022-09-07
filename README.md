@@ -1,34 +1,47 @@
+
+# 6D Pavillion, 6 Videos played in each face of a cube
+3
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/sajithamma/6d-pavilion)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Screenshot
+
+![alt Screenshot](/screenshot.png)
+
+## The Original Video
+### Each face of the cube has a video texture from the  video with different offset and repeat
+
+![alt Screenshot2](/screenshot2.png)
+
+
+```javascript
+
+ <mesh scale={1} rotation={[0, Math.PI, 0]} position={[0, 20, 0]} ref={leftscreen}>
+ 
+    <planeBufferGeometry attach="geometry" args={[80, 40]} />
+
+    <meshStandardMaterial emissive={"white"} side={THREE.DoubleSide}>
+
+        <videoTexture repeat={[0.6, 0.35]} offset={[0.4, 0]} attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+        <videoTexture attach="emissiveMap" args={[video]} />
+
+    </meshStandardMaterial>
+
+ </mesh>
+
+```
+
+
+## Installation 
 
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
