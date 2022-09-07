@@ -1,9 +1,12 @@
 
 # 6D Pavillion, 6 Videos played in each face of a cube
-3
+## A single video file with multiple offset is used
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/sajithamma/6d-pavilion)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Demo URL
+https://6d-pavilion-sajithamma.vercel.app/
 
 ## Screenshot
 
