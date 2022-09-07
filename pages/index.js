@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { SixDPavillion } from "../components/SixDPavillion";
+import { SixDPavillion } from "../components/sixDPavillion";
 
 
 
