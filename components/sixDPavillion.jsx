@@ -15,7 +15,7 @@ export const SixDPavillion = () => {
 
     useEffect(() => {
 
-        camera.position.set(27.5, 21.75, -39.3)
+        camera.position.set(40.5, 21.75, -39.3)
         camera.rotation.set(-1.38, 1.48, 1.38)
         controls.current.target.set(9, 20, -40)
         controls.current.update();
@@ -107,12 +107,17 @@ export const SixDPavillion = () => {
 
             </mesh>
 
-            {/**
+            
         <mesh scale={1} position={[40, 20 , -40]} rotation={[0, Math.PI / 2, 0]} ref={backscreen}>
             <planeBufferGeometry attach="geometry" args={[80, 40]} />
-            <meshBasicMaterial attach="material" color={0x000000} side={THREE.DoubleSide} />
+            <meshStandardMaterial emissive={"white"} side={THREE.DoubleSide}>
+
+                    <videoTexture repeat={[0.39, 0.35]} offset={[0, 0]} attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+                    <videoTexture attach="emissiveMap" args={[video]} />
+
+                </meshStandardMaterial>
         </mesh>
-         */}
+         
 
             <mesh scale={1} position={[0, 0.1, -40]} rotation={[Math.PI / 2, Math.PI, -Math.PI / 2]} ref={bottomscreen}>
                 <planeBufferGeometry attach="geometry" args={[80, 80]} />
