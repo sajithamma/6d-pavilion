@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useThree } from '@react-three/fiber'
-import { FirstPersonControls } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 
 
 import * as THREE from 'three';
@@ -9,13 +9,16 @@ import * as THREE from 'three';
 export const SixDPavillion = () => {
 
     const { camera } = useThree();
+    const controls = useRef();
     window.camera = camera;
+    window.controls = controls;
 
     useEffect(() => {
 
-        camera.position.set(57.5, 21.75, -39.3)
+        camera.position.set(27.5, 21.75, -39.3)
         camera.rotation.set(-1.38, 1.48, 1.38)
-
+        controls.current.target.set(9, 20, -40)
+        controls.current.update();
 
 
     }, [camera])
@@ -27,7 +30,7 @@ export const SixDPavillion = () => {
     const bottomscreen = useRef();
     const topscreen = useRef();
 
-    const controls = useRef();
+   
 
 
     const [video] = useState(() =>
@@ -52,7 +55,17 @@ export const SixDPavillion = () => {
     return (<>
 
 
-        <group position={[0, 0.5, 0]} onClick={() => { video.muted = !video.muted; }}>
+        <group position={[0, 0.5, 0]} onClick={() => { video.muted = false }}>
+
+            <OrbitControls ref={controls}
+            
+            enablePan={false}
+            //disbale up and down rotation
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+
+
+             />
 
             <mesh position={[0, 0, -40]} rotation={[Math.PI / 2, 0, 0]} >
                 <circleBufferGeometry attach="geometry" args={[100, 128, 128]} />

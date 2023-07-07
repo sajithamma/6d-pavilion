@@ -13,7 +13,7 @@ export default function Index() {
 
     <div style={{ width: "100vw", height: "100vh" }}>
 
-      <Canvas style={{ background: "#171717" }}
+      <Canvas style={{ background: "#171717", cursor: "grab" }}
 
         camera={{
 
